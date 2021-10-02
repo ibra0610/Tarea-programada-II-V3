@@ -15,7 +15,7 @@ class Planilla{
     public: 
     Planilla(int id, Empleado* empleado); 
     ~Planilla();
-
+    string deNombreEmpleado();
     void agregueEmpleado(Planilla *nuevoEmpleado) ;
 
     friend ostream& operator<< (ostream &o, const Planilla &planilla);

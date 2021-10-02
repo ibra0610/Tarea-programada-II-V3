@@ -1,6 +1,7 @@
 #include <iostream> 
 #include <fstream> 
 #include<sstream> 
+#include <iomanip>
 
 #include "arbol.h" 
 
@@ -25,8 +26,11 @@ int main(){
         cout<< "No se pudo crear el archivo Reporte.csv"; 
     } 
 
-    archivo<< "Nombre" << "," << "ID empleado" << "," << "ID supervisor" << endl;
+    archivo<< "ID de empleado" << "," << "Nombre completo" << "," << "Nombre completo del supervisor" << "," << "Monto a pagar" << endl;
     archivo << *arbol << ","<<endl; 
+    archivo<< "Subtotal: " <<","<< fixed << setw(11) << setprecision(6) << setfill(' ')<< arbol->deSubtotal() << ","<<endl; 
+    archivo<< "Total de impuestos: " << "," << fixed << setw(11) << setprecision(6) << setfill(' ') << arbol->deTotalImpuestos() << ","  << endl; 
+    archivo<< "Total: " << "," << fixed << setw(11) << setprecision(6) << setfill(' ')<< arbol->deTotal() << "," << endl; 
    
 
     archivo.close();

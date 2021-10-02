@@ -12,6 +12,9 @@ using namespace std;
 
 Arbol::Arbol(){
     this -> raiz = nullptr; 
+    this->subtotal = 0;
+    this->total_impuestos =0; 
+    this ->total =0;  
 } 
 
 Arbol:: ~Arbol(){
@@ -33,6 +36,22 @@ void Arbol::agregarEmpleado(int _id_empleado, Empleado* _empleado, int _id_super
         
     this->planilla.insert(pair<int, Planilla *> (_id_empleado,trabajador)); 
         
+}
+
+string Arbol::deNombre(int _id){
+    return this->planilla.at(_id)->deNombreEmpleado();
+}
+
+float Arbol::deSubtotal(){
+    return this->subtotal;
+}
+
+float Arbol::deTotalImpuestos(){
+    return this->total_impuestos;
+}
+
+float Arbol::deTotal(){
+    return this->total;
 }
 
 ostream& operator << (ostream &output, const Arbol &arbol){
@@ -60,9 +79,24 @@ istream& operator >> (istream &input, Arbol &arbol){
 
         if(tipo==1){
             EmpleadoNomina *empleadoNomina = new EmpleadoNomina(id,nombre,apellido,email,tipo,supervisor); 
+            empleadoNomina->asignePago(id);
+            arbol.subtotal += empleadoNomina->de_Subtotal();
+            arbol.total_impuestos += empleadoNomina->de_Impuestos();
+            arbol.total+=empleadoNomina->de_total();
+
+            if(supervisor!=0){
+                empleadoNomina->asigneSupervisor(arbol.deNombre(supervisor));
+            }
             arbol.agregarEmpleado(id, empleadoNomina, supervisor);
         }else{
             EmpleadoHoras *empleadoHoras = new EmpleadoHoras(id,nombre,apellido,email,tipo,supervisor); 
+            empleadoHoras->asignePago(id);
+            arbol.subtotal += empleadoHoras->de_Subtotal();
+            arbol.total_impuestos += empleadoHoras->de_Impuestos();
+            arbol.total+=empleadoHoras->de_total();
+            if(supervisor!=0){
+                empleadoHoras->asigneSupervisor(arbol.deNombre(supervisor));
+            }
             arbol.agregarEmpleado(id,empleadoHoras,supervisor);
         }
 

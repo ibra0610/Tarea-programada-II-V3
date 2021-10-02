@@ -16,6 +16,14 @@ void Planilla::agregueEmpleado(Planilla* nuevoEmpleado){
     this->subordinados.push_back(nuevoEmpleado); 
 } 
 
+string Planilla::deNombreEmpleado(){
+    return this ->empleado->getNombre();
+}
+
+
+
+
+
 ostream& operator << (ostream &output, const Planilla &planilla){
     output << *(planilla.empleado);
     output<< endl;
