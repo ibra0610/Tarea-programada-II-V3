@@ -13,6 +13,7 @@ class EmpleadoNomina : public Empleado {
     virtual ostream& serializar(ostream& out) const; 
 
     public: 
+    
     EmpleadoNomina(int, string, string, string, int, int); 
 
 }; 

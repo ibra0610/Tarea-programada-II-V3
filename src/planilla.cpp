@@ -17,7 +17,7 @@ void Planilla::agregueEmpleado(Planilla* nuevoEmpleado){
 } 
 
 ostream& operator << (ostream &output, const Planilla &planilla){
-    output << planilla.empleado;
+    output << *(planilla.empleado);
     output<< endl;
     
 
@@ -27,3 +27,4 @@ ostream& operator << (ostream &output, const Planilla &planilla){
 
     return output;
 }
+

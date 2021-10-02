@@ -12,8 +12,9 @@ EmpleadoHoras::EmpleadoHoras(int _id_empleado, string _nombre, string _apellido,
 }
 
 ostream& EmpleadoHoras::serializar(ostream& output) const {
-    output<<"Empleado por horas (" <<this->id_empleado << "): "; 
-    output << this-> nombre << " Apellido: " << this->apellido; 
+    output<< this -> nombre <<  this->apellido << ",";
+    output << this-> id_empleado << "," << this->id_supervisor; 
 
     return output;
 }
+

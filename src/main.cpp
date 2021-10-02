@@ -17,7 +17,19 @@ int main(){
 
     lector>>*arbol; 
 
-    cout<< *arbol;
+    ofstream archivo; 
+
+    archivo.open("Reporte.csv", ios::out); 
+
+    if(archivo.fail()){
+        cout<< "No se pudo crear el archivo Reporte.csv"; 
+    } 
+
+    archivo<< "Nombre" << "," << "ID empleado" << "," << "ID supervisor" << endl;
+    archivo << *arbol << ","<<endl; 
+   
+
+    archivo.close();
 
     delete arbol; 
 

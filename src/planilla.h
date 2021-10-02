@@ -10,6 +10,8 @@ class Planilla{
     Empleado* empleado;
     vector<Planilla *> subordinados; 
 
+    protected:  
+
     public: 
     Planilla(int id, Empleado* empleado); 
     ~Planilla();
