@@ -1,25 +1,27 @@
 #include "planilla.h"
 #include <iostream> 
 
-Planilla::Planilla(){
-
+Planilla::Planilla(int _id, Empleado* _empleado){
+    this->id = _id; 
+    this-> empleado = _empleado; 
 } 
 
 Planilla::~Planilla(){
-    for(Empleado* empleado : this->empleados){
+    for(Planilla* empleado : this->subordinados){
         delete empleado;
     }
 } 
 
-void Planilla::agregueEmpleado(Empleado* nuevoEmpleado){
-    this->empleados.push_back(nuevoEmpleado); 
+void Planilla::agregueEmpleado(Planilla* nuevoEmpleado){
+    this->subordinados.push_back(nuevoEmpleado); 
 } 
 
 ostream& operator << (ostream &output, const Planilla &planilla){
-    output << "Planilla" << endl; 
-    output << "Cantidad de empleados: " << planilla.empleados.size() << endl; 
+    output << planilla.empleado;
+    output<< endl;
+    
 
-    for(Empleado* empleado : planilla.empleados){
+    for(Planilla* empleado : planilla.subordinados){
         output << *empleado << endl;
     } 
 

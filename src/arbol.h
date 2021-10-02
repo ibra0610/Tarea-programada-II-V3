@@ -4,20 +4,21 @@
 #include <map> 
 #include <iostream> 
 #include "planilla.h" 
+#include "empleado.h"
 
 using namespace std; 
 
 class Arbol{
-    Planilla *jefe; 
+    Planilla *raiz; 
     map<int, Planilla *> planilla; 
 
     public: 
     Arbol(); 
     ~Arbol(); 
-    void agregarEmpleado(int, string, string, string, int, int);
+    void agregarEmpleado(int, Empleado *empleado, int);
     
     friend ostream& operator << (ostream &output, const Arbol &arbol); 
     friend istream& operator >> (istream &input, Arbol &arbol); 
-    
+
 }; 
 #endif

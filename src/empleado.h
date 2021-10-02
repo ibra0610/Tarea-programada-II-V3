@@ -16,7 +16,6 @@ class Empleado{
 
     public: 
     ~Empleado(){}
-
     friend ostream& operator << (ostream &output, const Empleado &empleado);
 }; 
 

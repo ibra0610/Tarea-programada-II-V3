@@ -3,16 +3,18 @@
 
 #include <vector>
 #include <iostream> 
-#include "empleado.h"; 
+#include "empleado.h" 
 
 class Planilla{
-    vector<Empleado *> empleados; 
+    int id;
+    Empleado* empleado;
+    vector<Planilla *> subordinados; 
 
     public: 
-    Planilla(); 
+    Planilla(int id, Empleado* empleado); 
     ~Planilla();
 
-    void agregueEmpleado(Empleado *nuevoEmpleado) ;
+    void agregueEmpleado(Planilla *nuevoEmpleado) ;
 
     friend ostream& operator<< (ostream &o, const Planilla &planilla);
 }; 
