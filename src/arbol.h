@@ -11,16 +11,15 @@ using namespace std;
 class Arbol{
     Planilla *raiz; 
     map<int, Planilla *> planilla; 
-    float subtotal, total_impuestos, total; 
+    
 
     public: 
     Arbol(); 
     ~Arbol(); 
     void agregarEmpleado(int, Empleado *empleado, int);
     string deNombre(int id);
-    float deSubtotal();
-    float deTotalImpuestos();
-    float deTotal();
+    void asignePago(int id, float pago);
+    
     friend ostream& operator << (ostream &output, const Arbol &arbol); 
     friend istream& operator >> (istream &input, Arbol &arbol); 
 

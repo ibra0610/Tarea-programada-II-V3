@@ -17,17 +17,10 @@ string Empleado::getNombre(){
     return this->nombre + " " + this ->apellido;
 }
 
-float Empleado::de_Subtotal(){
-    return this->subtotal; 
+void Empleado:: asignePago(float nuevo_pago){
+    this->pago_a_empleado = nuevo_pago;
 }
 
-float Empleado::de_Impuestos(){
-    return this ->total_impuestos; 
-} 
-
-float Empleado::de_total(){
-    return this -> subtotal + this ->total_impuestos; 
-}
 
 void Empleado::asigneSupervisor(string nombreSupervisor){
     this->nombre_supervisor = nombreSupervisor;

@@ -20,7 +20,9 @@ string Planilla::deNombreEmpleado(){
     return this ->empleado->getNombre();
 }
 
-
+void Planilla::asignePago_a_Persona(float _nuevoPago){
+    empleado->asignePago(_nuevoPago);
+}
 
 
 
