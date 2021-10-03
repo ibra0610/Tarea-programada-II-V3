@@ -22,7 +22,7 @@ void Pago::calcule_y_asignePago(Arbol *arbol){
     float monto_bruto =0; 
     float impuesto_unico =0; 
 
-    while(getline(nomina,linea)){
+    while(getline(nomina,linea)){ //Lee el archivo Nomina.txt y le asigna el pago a cada empleado de nomina
             istringstream stream(linea);
 
             linea ="";
@@ -52,7 +52,7 @@ void Pago::calcule_y_asignePago(Arbol *arbol){
     int horas_a_pagar =0; 
     float monto_por_hora =0; 
 
-    while(getline(horas,linea)){
+    while(getline(horas,linea)){//Lee el archivo HorasTrabajadas.txt y le asigna el pago a cada empleado de nomina
             istringstream stream(linea); 
             linea =""; 
             id_empleado_a_pagar=0;

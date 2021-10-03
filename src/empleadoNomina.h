@@ -13,7 +13,7 @@ class EmpleadoNomina : public Empleado {
     virtual ostream& serializar(ostream& out) const; 
 
     public: 
-   // virtual void asignePago(int id_a_pagar);
+   
     EmpleadoNomina(int, string, string, string, int, int); 
 
 }; 

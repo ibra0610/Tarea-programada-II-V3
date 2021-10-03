@@ -68,15 +68,15 @@ istream& operator >> (istream &input, Arbol &arbol){
 
         if(tipo==1){
             EmpleadoNomina *empleadoNomina = new EmpleadoNomina(id,nombre,apellido,email,tipo,supervisor); 
-            //empleadoNomina->asignePago(id);
+            
 
-            if(supervisor!=0){
-                empleadoNomina->asigneSupervisor(arbol.deNombre(supervisor));
+            if(supervisor!=0){ //Si el ID supervisor es 0 significa que no tiene, por defecto deja "NO TIENE SUPERVISOR"
+                empleadoNomina->asigneSupervisor(arbol.deNombre(supervisor)); //sino usa el id de supervisor para obtener el nombre y asignarlo al empleado
             }
             arbol.agregarEmpleado(id, empleadoNomina, supervisor);
         }else{
             EmpleadoHoras *empleadoHoras = new EmpleadoHoras(id,nombre,apellido,email,tipo,supervisor); 
-            //empleadoHoras->asignePago(id);
+            
        
             if(supervisor!=0){
                 empleadoHoras->asigneSupervisor(arbol.deNombre(supervisor));

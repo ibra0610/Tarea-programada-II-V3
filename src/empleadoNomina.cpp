@@ -21,40 +21,6 @@ ostream& EmpleadoNomina::serializar(ostream& output) const {
     return output;
  }
 
-// void EmpleadoNomina:: asignePago(int id_a_pagar){
-//     ifstream nomina("Nomina.txt",ifstream::in); 
 
-//     if(!nomina.is_open()){
-//         cerr<< "Error leyendo archivo Nomina.txt" << endl;  
-//     } 
-
-//     string linea = ""; 
-//     float monto=0;
-//     int id_nomina =0;
-//     float monto_bruto = 0;
-//     float impuesto_unico= 0; 
-
-//     while(getline(nomina,linea)){
-//         istringstream stream(linea); 
-
-//         linea = ""; 
-//         monto =0;
-//         id_nomina =0;
-//         monto_bruto = 0;
-//         impuesto_unico= 0; 
-
-//         stream >> id_nomina >> monto_bruto; 
-
-//         if(id_nomina==id_a_pagar){
-//             impuesto_unico = monto_bruto * 7/100; 
-//             total_impuestos +=impuesto_unico;
-//             pago_a_empleado = monto_bruto - impuesto_unico;
-//             subtotal+= pago_a_empleado;
-//         }
-        
-//     }
-//     nomina.close();
-
-// }
 
  
