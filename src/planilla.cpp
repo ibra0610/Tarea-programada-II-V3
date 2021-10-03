@@ -26,11 +26,10 @@ string Planilla::deNombreEmpleado(){
 
 ostream& operator << (ostream &output, const Planilla &planilla){
     output << *(planilla.empleado);
-    output<< endl;
-    
+    output << endl;
 
     for(Planilla* empleado : planilla.subordinados){
-        output << *empleado << endl;
+        output << *empleado;
     } 
 
     return output;
