@@ -15,7 +15,7 @@ EmpleadoNomina :: EmpleadoNomina(int _id_empleado, string _nombre, string _apell
 
 ostream& EmpleadoNomina::serializar(ostream& output) const {
     output<< this -> id_empleado << "," << this->nombre;
-    output << this-> apellido << "," << this->nombre_supervisor; 
+    output << " " << this-> apellido << "," << this->nombre_supervisor; 
     output << "," << this->pago_a_empleado;
 
     return output;
