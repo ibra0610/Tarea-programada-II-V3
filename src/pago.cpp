@@ -13,70 +13,73 @@ Pago::Pago(){
     this -> total = 0; 
 } 
 
-void Pago::calcule_y_asignePago(Arbol *arbol){
-    ifstream nomina("Nomina.txt", ifstream::in); 
-    if(!nomina.is_open()){
-        cerr<< "Error leyendo archivo Nomina.txt" << endl;  
-    }
-    string linea= ""; 
-    float monto_bruto =0; 
-    float impuesto_unico =0; 
+void Pago::calcule_y_asignePago(Arbol *arbol){ 
+        
+        ifstream nomina("Nomina.txt", ifstream::in); 
+        if(!nomina.is_open()){
+         cerr<< "Error leyendo archivo Nomina.txt" << endl;  
+        }
+        string linea= ""; 
+        float monto_bruto =0; 
+        float impuesto_unico =0; 
 
-    while(getline(nomina,linea)){ //Lee el archivo Nomina.txt y le asigna el pago a cada empleado de nomina
-            istringstream stream(linea);
+        while(getline(nomina,linea)){ //Lee el archivo Nomina.txt y le asigna el pago a cada empleado de nomina
+                istringstream stream(linea);
 
-            linea ="";
-            monto_a_pagar =0; 
-            id_empleado_a_pagar=0;
-            monto_bruto=0;
-            impuesto_unico =0; 
+                linea ="";
+                monto_a_pagar =0; 
+                id_empleado_a_pagar=0;
+                monto_bruto=0;
+                impuesto_unico =0; 
 
-            stream >> id_empleado_a_pagar >> monto_bruto; 
+                stream >> id_empleado_a_pagar >> monto_bruto; 
 
-            impuesto_unico = monto_bruto * 7/100;
-            total_impuestos+= impuesto_unico; 
-            monto_a_pagar = monto_bruto - impuesto_unico; 
+                impuesto_unico = monto_bruto * 7/100;
+                total_impuestos+= impuesto_unico; 
+                monto_a_pagar = monto_bruto - impuesto_unico; 
 
-            subtotal+=monto_a_pagar; 
-
-            arbol->asignePago(id_empleado_a_pagar, monto_a_pagar);
+                subtotal+=monto_a_pagar; 
+            
+                arbol->asignePago(id_empleado_a_pagar, monto_a_pagar);
+            
+            
             
         
-    }
-    nomina.close(); 
+        }
+        nomina.close(); 
 
-    ifstream horas("HorasTrabajadas.txt",ifstream::in);
-    if(!horas.is_open()){
-        cerr<<"Error leyendo archivo HorasTrabajadas.txt" << endl; 
-    } 
-    int horas_a_pagar =0; 
-    float monto_por_hora =0; 
+        ifstream horas("HorasTrabajadas.txt",ifstream::in);
+        if(!horas.is_open()){
+            cerr<<"Error leyendo archivo HorasTrabajadas.txt" << endl; 
+        } 
+        linea = "";
+        int horas_a_pagar =0; 
+        float monto_por_hora =0; 
 
-    while(getline(horas,linea)){//Lee el archivo HorasTrabajadas.txt y le asigna el pago a cada empleado de nomina
-            istringstream stream(linea); 
-            linea =""; 
-            id_empleado_a_pagar=0;
-            monto_a_pagar =0;
-            horas_a_pagar =0; 
-            monto_por_hora =0; 
+        while(getline(horas,linea)){//Lee el archivo HorasTrabajadas.txt y le asigna el pago a cada empleado de nomina
+                istringstream stream(linea); 
+                linea =""; 
+                id_empleado_a_pagar=0;
+                monto_a_pagar =0;
+                horas_a_pagar =0; 
+                monto_por_hora =0; 
 
-            stream >> id_empleado_a_pagar >> monto_por_hora >> horas_a_pagar;
+                stream >> id_empleado_a_pagar >> monto_por_hora >> horas_a_pagar;
 
-            monto_a_pagar = monto_por_hora * horas_a_pagar; 
+                monto_a_pagar = monto_por_hora * horas_a_pagar; 
 
-            subtotal+=monto_a_pagar; 
-
-            arbol->asignePago(id_empleado_a_pagar, monto_a_pagar);
+                subtotal+=monto_a_pagar; 
+            
+                arbol->asignePago(id_empleado_a_pagar, monto_a_pagar);
+           
+            
             
 
-    }
-    horas.close();
-
+        }
+        horas.close();
+    
 }
 
-float Pago::deMontoAPagar(){
-    return monto_a_pagar;
-} 
 
 float Pago::deSubtotal(){
     return subtotal; 

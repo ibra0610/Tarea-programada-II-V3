@@ -1,3 +1,4 @@
+#ifndef UNIT_TEST
 #include <iostream> 
 #include <fstream> 
 #include<sstream> 
@@ -18,6 +19,7 @@ int main(){
     Arbol *arbol = new Arbol(); 
     Pago *procesador = new Pago();
 
+
     lector>>*arbol; 
 
     procesador->calcule_y_asignePago(arbol); 
@@ -37,6 +39,7 @@ int main(){
     archivo<< "Total: " << "," << fixed << setw(11) << setprecision(6) << setfill(' ')<< procesador->deTotal() << "," << endl; 
    
 
+
     archivo.close();
 
     delete arbol; 
@@ -44,3 +47,5 @@ int main(){
 
     return 0; 
 }
+
+#endif

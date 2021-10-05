@@ -13,7 +13,6 @@ class Pago{
     public: 
     Pago(); 
     void calcule_y_asignePago(Arbol *arbol);
-    float deMontoAPagar();
     float deSubtotal(); 
     float deTotalImpuestos(); 
     float deTotal(); 

@@ -36,7 +36,9 @@ void Arbol::agregarEmpleado(int _id_empleado, Empleado* _empleado, int _id_super
 }
 
 void Arbol::asignePago(int _id, float _pago){
-    planilla.at(_id)->asignePago_a_Persona(_pago);
+    
+        planilla.at(_id)->asignePago_a_Persona(_pago);
+    
 }
 
 string Arbol::deNombre(int _id){
